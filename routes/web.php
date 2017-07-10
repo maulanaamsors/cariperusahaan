@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 
 Route::get('/admin/tambahperusahaan', 'PerushaanController@index');
+Route::post('/admin/tambahperusahaan', 'PerushaanController@create');

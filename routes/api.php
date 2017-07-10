@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/listprovinsi', 'ApiPrusahaanController@getListProvinsi');
 Route::get('/listkota', 'ApiPrusahaanController@getListKota');
 Route::get('/listkecamatan', 'ApiPrusahaanController@getListKecamatan');
+Route::get('/listperusahaan', 'ApiPrusahaanController@getListPerusahaan');

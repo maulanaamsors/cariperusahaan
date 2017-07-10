@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,9 +35,13 @@
 
 <body>
     <!-- Preloader -->
+    
     <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
     </div>
+    <input type="hidden" id="kotaval">
+    <input type="hidden" id="provinsival">
+    <input type="hidden" id="kecamatanval">
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
@@ -102,63 +112,82 @@
                 <!-- /.row -->
                 <!-- .row -->
                 <div class="row">
-                    <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="{{ asset('/plugins/images/large/img1.jpg') }}">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white">User Name</h4>
-                                        <h5 class="text-white">info@myadmin.com</h5> </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>258</h1> </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <p class="text-blue"><i class="ti-twitter"></i></p>
-                                    <h1>125</h1> </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <p class="text-danger"><i class="ti-dribbble"></i></p>
-                                    <h1>556</h1> </div>
-                            </div>
+                    @if(Session::has('message'))
+                        <p class="alert alert-info">{{ Session::get('message') }}</p>
+                    @endif
+                    
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
+                    @endif
+
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="POST" action="">
                                 <div class="form-group">
-                                    <label class="col-md-12">Full Name</label>
+                                    <label class="col-md-12">Nama Usaha</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line"> </div>
+                                        <input type="text" name="nama_usaha" placeholder="ex : PT. Indofood, PT. Sarimurni...." class="form-control form-control-line"> </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="example-email" class="col-md-12">Email</label>
+                                    <label class="col-md-12">Produk Utama</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email"> </div>
+                                        <input type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Password</label>
-                                    <div class="col-md-12">
-                                        <input type="password" value="password" class="form-control form-control-line"> </div>
-                                </div>
+
+
                                 <div class="form-group">
                                     <label class="col-md-12">Phone No</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="123 456 7890" class="form-control form-control-line"> </div>
+                                        <input type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
                                 </div>
+
+                                
                                 <div class="form-group">
-                                    <label class="col-md-12">Message</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" class="form-control form-control-line"></textarea>
+                                    <label class="col-sm-12">Skala</label>
+                                    <div class="col-sm-12">
+                                        <select name="skala" class="form-control form-control-line">
+                                            <option id="kecamatan-option" value="0">Pilih-Skala</option>
+                                            <option id="kecamatan-option" value="Kecil">Kecil</option>
+                                            <option id="kecamatan-option" value="Menengah">Menengah</option> 
+                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-12">Sektor</label>
+                                    <div class="col-sm-12">
+                                        <select id="sektor" name="id_sektor" class="form-control form-control-line">
+                                            <option id="kecamatan-option" value="0">Pilih-Sektor</option>
+                                            @foreach ($listSektor as $item) 
+                                                <option id="kecamatan-option" value="{{ $item->id_sektor }}">{{ $item->sektor }}</option>
+                                            @endforeach
+                                         </select>
+                                    </div>
+                                </div>
+
+                                <input id="latitude" type="hidden" name="latitude" value="">
+                                <input id="longitude" type="hidden" name="longitude" value="">
+                                
+
+
+                                <div class="form-group">
+                                    <label class="col-md-12">Alamat</label>
+                                    <div class="col-md-12">
+                                        <input id="alamat" type="text" name="alamat" placeholder="ex: Jl. Cempaka VI No.1 ...." class="form-control form-control-line"> </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-12">Select Province</label>
                                     <div class="col-sm-12">
-                                        <select id="provinsi" class="form-control form-control-line">
-                                            <option id="provinsi-option" value="provinsi">Pilih-Provinsi</option> 
+                                        <select id="provinsi" name="provinsi_id" class="form-control form-control-line">
+                                            <option id="provinsi-option" value="0">Pilih-Provinsi</option> 
                                          </select>
                                     </div>
                                 </div>
@@ -166,8 +195,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-12">Select Kota</label>
                                     <div class="col-sm-12">
-                                        <select id="kota" class="form-control form-control-line">
-                                            <option id="kota-option" value="provinsi">Pilih-Kota</option> 
+                                        <select id="kota" name="kota_id" class="form-control form-control-line">
+                                            <option id="kota-option" value="0">Pilih-Kota</option> 
                                          </select>
                                     </div>
                                 </div>
@@ -175,15 +204,21 @@
                                 <div class="form-group">
                                     <label class="col-sm-12">Select Kecamatan</label>
                                     <div class="col-sm-12">
-                                        <select id="kecamatan" class="form-control form-control-line">
-                                            <option id="kecamatan-option" value="provinsi">Pilih-Kecamatan</option> 
+                                        <select id="kecamatan" name="kecam_id" class="form-control form-control-line">
+                                            <option id="kecamatan-option" value="0">Pilih-Kecamatan</option> 
                                          </select>
                                     </div>
                                 </div>
 
+                                <div id="map"></div>
+
+                                <br>
+                                
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Profile</button>
+                                        <input type="submit" class="btn btn-success" value="Selesai"></input>
                                     </div>
                                 </div>
                             </form>
@@ -213,14 +248,45 @@
 
     <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAGLfLd_L8RZiiKH5HKgH0OZDdi_Af8F0"> </script>
+
+
     <script>
+
+    function initMap(latParam, lonParam) {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: new google.maps.LatLng(latParam, lonParam),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i;
+
+            i=1;
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latParam, lonParam),
+                map: map
+            
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent('faisal');
+                    infowindow.open(map, marker);
+                }
+            })(marker, 0));
+      }
+
           $.ajax({
                 type: 'get',
                 url: '{{ url("api/listprovinsi")}}',
                 success: function(data) {
                     var results = data.results;
 
-/*
+                    /*
                     $('#provinsi').append('<select id="provinsi" name="provinsi" class="form-control"> <option id="provinsi-option" value="0">Select Province</option> </select>');
                     $('#provinsi').empty('');
                     $('#provinsi').append('<option id="provinsi-option" value="0">Select Provinsi</option> ');
@@ -238,6 +304,7 @@
 
         $('#provinsi').change(function() {
            var id_province = $(this).val();
+            $('#provinsival').val($("#provinsi option:selected").text()); 
             $.ajax({
                 type: 'get',
                 crossDomain: true,
@@ -259,8 +326,11 @@
             });
         });
 
+
         $('#kota').change(function() {
            var id_city = $(this).val();
+           $('#kotaval').val($('#kota option:selected').text());
+
            $.ajax({
                 type: 'get',
                 url: '{{ url("api/listkecamatan") }}',
@@ -283,6 +353,31 @@
             });
         });
 
+
+        $('#kecamatan').change(function() {
+           var id_kecamatan = $(this).val();
+           $('#kecamatanval').val($('#kecamatan option:selected').text());
+
+           $.ajax({
+                type: 'get',
+                url: 'https://cors-anywhere.herokuapp.com/' +  'https://maps.googleapis.com/maps/api/place/textsearch/json',
+                data: {
+                    query:$('#provinsival').val() + ' ' + $('#kotaval').val() + ' ' + $('#kecamatanval').val() + ' ' + $('#alamat').val(),
+                    key:'AIzaSyDHlQ7ea5Zqvr3mOUSQSd7djmnGCtPkw9A'
+                },
+                success: function(data) {
+                     var results = data.results;
+
+                     console.log(results[0].geometry.location.lat);
+                     console.log(results[0].geometry.location.lng);
+                     $('#latitude').val(results[0].geometry.location.lat);
+                     $('#longitude').val(results[0].geometry.location.lng);
+                     initMap(results[0].geometry.location.lat, results[0].geometry.location.lng);
+
+                   
+                },
+            });
+        });
     </script>
 </body>
 

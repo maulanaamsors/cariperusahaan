@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Provinsi;
 use App\Kota;
 use App\Kecamatan;
+use App\Perusahaan;
 
 class ApiPrusahaanController extends Controller
 {
@@ -29,6 +30,13 @@ class ApiPrusahaanController extends Controller
         $results = Kecamatan::where('kota_id', $req->input('id'))->get();
 
         return response()->json(["results"=>$results]);
+    }
+
+    public function getListPerusahaan(){
+        $listPerusahaan = Perusahaan::all();
+
+        return response()->json(["status"=>200 , "message"=>"get data success","results"=>$listPerusahaan]);
+        
     }
 
 }
