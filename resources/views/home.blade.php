@@ -136,7 +136,6 @@
                           });
 
                           var infowindow = new google.maps.InfoWindow();
-
                           var marker;
                           var i = 0;
 
@@ -161,7 +160,37 @@
                           });
                         } else {
                           // Browser doesn't support Geolocation
-                          handleLocationError(false, infoWindow, map.getCenter());
+                           navigator.geolocation.getCurrentPosition(function(position) {
+                           
+                          var map = new google.maps.Map(document.getElementById('map'), {
+                              zoom: 17,
+                              center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                              mapTypeId: google.maps.MapTypeId.ROADMAP
+                          });
+
+                          var infowindow = new google.maps.InfoWindow();
+                          var marker;
+                          var i = 0;
+
+                          results.forEach(function(item) {
+                              marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(item.latitude, item.longitude),
+                              map: map
+                            });
+
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                              return function() {
+                                infowindow.setContent(item.nama_usaha);
+                                infowindow.open(map, marker);
+                              }
+                            })(marker, i));
+
+                            i++;
+                          });
+
+                          }, function() {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                          });
                         }
                 },
             });
