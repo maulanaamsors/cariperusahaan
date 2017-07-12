@@ -51,4 +51,9 @@ class PerushaanController extends Controller
         ->with('message', 'Berhasil membuat perusahaan baru')
         ->with('listSektor', $listSektor);
     }
+
+    public function home(){
+        
+        return view('home');
+    }
 }
