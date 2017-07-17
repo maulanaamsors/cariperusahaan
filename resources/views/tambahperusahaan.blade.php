@@ -14,10 +14,10 @@
 
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
+  <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
 <!--Icons-->
-<script src="js/lumino.glyphs.js"></script>
+<script src="{{ asset('js/lumino.glyphs.js')}}"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -221,13 +221,13 @@
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
+	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('js/chart.min.js')}}"></script>
+	<script src="{{ asset('js/chart-data.js')}}"></script>
+	<script src="{{ asset('js/easypiechart.js')}}"></script>
+	<script src="{{ asset('js/easypiechart-data.js')}}"></script>
+	<script src="{{ asset('js/bootstrap-datepicker.js')}}"></script>
 
 
 
