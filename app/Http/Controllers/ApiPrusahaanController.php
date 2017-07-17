@@ -17,7 +17,6 @@ class ApiPrusahaanController extends Controller
         return response()->json(["results"=>$results]);
     }
 
-
     public function getListKota(Request $req)
     {
         $results = Kota::where('provinsi_id', $req->input('id'))->get();
@@ -35,8 +34,6 @@ class ApiPrusahaanController extends Controller
     public function getListPerusahaan(){
         $listPerusahaan = Perusahaan::all();
 
-        return response()->json(["status"=>200 , "message"=>"get data success","results"=>$listPerusahaan]);
-        
+        return response()->json(["status"=>200 , "message"=>"get data success","results"=>$listPerusahaan]);  
     }
-
 }
