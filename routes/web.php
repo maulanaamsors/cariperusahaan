@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PerushaanController@home');
-Route::get('/admin/tambahperusahaan', 'PerushaanController@index');
-Route::post('/admin/tambahperusahaan', 'PerushaanController@create');
+Route::get('/pemilikusaha/tambahperusahaan', 'PerushaanController@index');
+Route::post('/pemilikusaha/tambahperusahaan', 'PerushaanController@create');
 Route::get('/admin/profile', 'AdminController@index');
+Route::get('/admin/login','AdminController@formlogin');
