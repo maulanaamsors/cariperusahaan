@@ -16,3 +16,7 @@ Route::get('/pemilik/tambahperusahaan', 'PerushaanController@index');
 Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
 Route::get('/admin/profile', 'AdminController@index');
 Route::get('/pemilik/login','PerushaanController@formlogin');
+Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
+Route::get('/admin/login','AdminController@formlogin');
+
+
