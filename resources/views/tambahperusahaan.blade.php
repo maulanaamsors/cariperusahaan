@@ -110,8 +110,8 @@
                     @endif
 
                     <div class="container">
-                                <div class="col-md-1">
-                                </div>    
+                            <div class="col-md-1">
+                            </div>    
                             <div class="col-md-8">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -128,14 +128,12 @@
                                                 <input type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
                                         </div>
 
-
                                         <div class="form-group">
                                             <label class="col-md-12">Phone No</label>
                                             <div class="col-md-12">
                                                 <input type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
                                         </div>
 
-                                        
                                         <div class="form-group">
                                             <label class="col-sm-12">Skala</label>
                                             <div class="col-sm-12">
@@ -162,8 +160,6 @@
                                         <input id="latitude" type="hidden" name="latitude" value="">
                                         <input id="longitude" type="hidden" name="longitude" value="">
                                         
-
-
                                         <div class="form-group">
                                             <label class="col-md-12">Alamat</label>
                                             <div class="col-md-12">
@@ -213,11 +209,8 @@
                             </div> <!--panel-->
                         </div> <!-- container-->
                     </div>
-                </div>
-                <!-- /.row -->		
-	</div><!--/.col-->
-			
-			
+                </div><!-- /.row -->		
+	        </div><!--/.col-->
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 

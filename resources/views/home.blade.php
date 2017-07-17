@@ -9,7 +9,7 @@
       <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
 
     <!--Icons-->
-    <script src="js/lumino.glyphs.js"></script>
+    <script src="{{ asset('js/lumino.glyphs.js')}}"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -44,7 +44,13 @@
     </nav>   
     <div id="map"></div>
 
-
+<script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
+	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('js/chart.min.js')}}"></script>
+	<script src="{{ asset('js/chart-data.js')}}"></script>
+	<script src="{{ asset('js/easypiechart.js')}}"></script>
+	<script src="{{ asset('js/easypiechart-data.js')}}"></script>
+	<script src="{{ asset('js/bootstrap-datepicker.js')}}"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 
 <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
