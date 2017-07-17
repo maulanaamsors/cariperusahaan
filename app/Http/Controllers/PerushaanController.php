@@ -11,7 +11,7 @@ class PerushaanController extends Controller
     public function index(){
         $listSektor = Sektor::all();
 
-        return view('tambahperusahaan')->with('listSektor', $listSektor);
+        return view('pemilik.tambahperusahaan')->with('listSektor', $listSektor);
     }
 
     public function create(Request $req){
@@ -55,5 +55,10 @@ class PerushaanController extends Controller
     public function home(){
         
         return view('home');
+    }
+
+    public function formlogin(){
+        
+        return view('pemilik.login');
     }
 }

@@ -1,4 +1,4 @@
-    @extends('master.pemilik')
+    @extends('pemilik.master')
 
     @section('content')
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
