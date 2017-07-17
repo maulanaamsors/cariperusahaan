@@ -49,14 +49,23 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-						        <th data-field="id" data-sortable="true">Nama</th>
-						        <th data-field="name"  data-sortable="true">Email</th>
-						        <th data-field="price" data-sortable="true">Alamat</th>
+						        <th data-field="nama" data-sortable="true">Nama</th>
+						        <th data-field="email"  data-sortable="true">Email</th>
+						        <th data-field="alamat" data-sortable="true">Alamat</th>
+                                <th data-field="action"  data-sortable="true">Action</th>
 						    </tr>
 						    </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-sortable="true">Fasal</td>
+                                    <td data-sortable="true">fasf</td>
+                                    <td data-sortable="true">asdklk</td>
+                                    <td data-sortable="true"><button class="btn btn-success btn-md" id="btn-chat">Activate</button></td>
+                                </tr>
+                            </tbody>
 						</table>
 					</div>
 				</div>
