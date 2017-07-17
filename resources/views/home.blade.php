@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Places Searchbox</title>
+    <title>Home</title>
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
       <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
       <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
@@ -36,7 +36,8 @@
           <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>  Login <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login </a> &nbsp;
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register </a>
             </li>
           </ul>
         </div>			
@@ -44,14 +45,14 @@
     </nav>   
     <div id="map"></div>
 
-<script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
+  <script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{ asset('js/chart.min.js')}}"></script>
 	<script src="{{ asset('js/chart-data.js')}}"></script>
 	<script src="{{ asset('js/easypiechart.js')}}"></script>
 	<script src="{{ asset('js/easypiechart-data.js')}}"></script>
 	<script src="{{ asset('js/bootstrap-datepicker.js')}}"></script>
-<script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
 
 <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB--m_ndjyEvbE_ELOcvc0jSGVzLRN0fzg&libraries=places" type="text/javascript" async defer></script>    
