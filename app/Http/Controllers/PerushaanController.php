@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sektor;
 use App\Perusahaan;
+use App\Photos;
+use App\Http\Requests\UploadRequest;
 
 class PerushaanController extends Controller
 {
@@ -14,7 +16,7 @@ class PerushaanController extends Controller
         return view('pemilik.tambahperusahaan')->with('listSektor', $listSektor);
     }
 
-    public function create(Request $req){
+    public function create(Request $req, UploadRequest $uReq){
         $this->validate($req, [
             'nama_usaha' => 'required|max:255',
             'produk_utama' => 'required',
@@ -27,6 +29,7 @@ class PerushaanController extends Controller
             'longitude' => 'required',
             'skala' => 'required',
             'id_sektor' => 'required',
+            'images' => 'required',
         ]);
 
         $perusahaan = new Perusahaan;
@@ -44,10 +47,30 @@ class PerushaanController extends Controller
         $perusahaan->id_sektor = $req->input('id_sektor');
         $perusahaan->save();
 
+        $id_perusahaan = Perusahaan::where('id_pemilik', 2)
+        ->where('nama_usaha', $req->input('nama_usaha'))->first();
+
+        $picture = '';
+        //if ($uReq->hasFile('images')) {
+            $files = $uReq->file('images');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $picture = date('His').$filename;
+                $destinationPath = base_path() . '\storage\app\public\images';  
+                $file->move($destinationPath, $picture);
+
+                $photo = new Photos;
+                $photo->id_prusahaan = $id_perusahaan->id_prusahaan;
+                $photo->photo_name =  date('His').$filename;
+                $photo->save();
+            }
+        //}
+
         $listSektor = Sektor::all();
 
         //return redirect('tambahperusahaan')
-        return view('tambahperusahaan')
+        return view('pemilik.tambahperusahaan')
         ->with('message', 'Berhasil membuat perusahaan baru')
         ->with('listSektor', $listSektor);
     }

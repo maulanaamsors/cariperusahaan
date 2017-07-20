@@ -17,6 +17,12 @@ Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
 Route::get('/admin/profile', 'AdminController@index');
 Route::get('/pemilik/login','PerushaanController@formlogin');
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
+Route::put('/admin/olahpemilik', 'pengolahanakunpengusahahController@updateAction');
 Route::get('/admin/login','AdminController@formlogin');
+
+/*Route::get('/storage/{file_name}',
+function ($file_name){
+    return Image::make(storage_path('public/images'. $file_name))->response();
+});*/
 
 
