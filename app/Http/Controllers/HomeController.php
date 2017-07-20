@@ -35,7 +35,7 @@ class HomeController extends Controller
     public function email()
     {
         //send email
-        Mail::to('faisal.ishak92@outlook.com')->send(new ActivateUser());
+        Mail::to('taufiqnugraha48@gmail.com')->send(new ActivateUser());
 
 
         return redirect('/home');

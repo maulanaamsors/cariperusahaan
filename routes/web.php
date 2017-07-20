@@ -30,7 +30,7 @@ function ($file_name){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/email', 'HomeController@email')->name('sendEmail');
-Route::get('/sendemail', 'HomeController@mail');
+Route::get('/sendemail', 'HomeController@email');
 
 
 
