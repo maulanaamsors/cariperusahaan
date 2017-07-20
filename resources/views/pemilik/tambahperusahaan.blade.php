@@ -1,6 +1,7 @@
     @extends('pemilik.master')
 
     @section('content')
+    <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -197,7 +198,9 @@
 	</div>	<!--/.main-->
 
 
-    <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
+    <input type="hidden" id="provinsival" >
+    <input type="hidden" id="kotaval">
+    <input type="hidden" id="kecamatanval">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAGLfLd_L8RZiiKH5HKgH0OZDdi_Af8F0"> </script>
 
@@ -311,7 +314,7 @@
 
            $.ajax({
                 type: 'get',
-                url: 'https://cors-anywhere.herokuapp.com/' +  'https://maps.googleapis.com/maps/api/place/textsearch/json',
+                url:  'https://cors-anywhere.herokuapp.com/' +'https://maps.googleapis.com/maps/api/place/textsearch/json',
                 data: {
                     query:$('#provinsival').val() + ' ' + $('#kotaval').val() + ' ' + $('#kecamatanval').val() + ' ' + $('#alamat').val(),
                     key:'AIzaSyDHlQ7ea5Zqvr3mOUSQSd7djmnGCtPkw9A'
@@ -327,6 +330,8 @@
                 },
             });
             
+
+            // initMap(3.443, 9.88);
             // $('#latitude').val(3.443);
             // $('#longitude').val(9.88);
         });

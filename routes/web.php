@@ -26,3 +26,10 @@ function ($file_name){
 });*/
 
 
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/email', 'HomeController@email')->name('sendEmail');
+
+
+
