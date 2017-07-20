@@ -309,25 +309,26 @@
            var id_kecamatan = $(this).val();
            $('#kecamatanval').val($('#kecamatan option:selected').text());
 
-        //    $.ajax({
-        //         type: 'get',
-        //         url: 'https://cors-anywhere.herokuapp.com/' +  'https://maps.googleapis.com/maps/api/place/textsearch/json',
-        //         data: {
-        //             query:$('#provinsival').val() + ' ' + $('#kotaval').val() + ' ' + $('#kecamatanval').val() + ' ' + $('#alamat').val(),
-        //             key:'AIzaSyDHlQ7ea5Zqvr3mOUSQSd7djmnGCtPkw9A'
-        //         },
-        //         success: function(data) {
-        //              var results = data.results;
+           $.ajax({
+                type: 'get',
+                url: 'https://cors-anywhere.herokuapp.com/' +  'https://maps.googleapis.com/maps/api/place/textsearch/json',
+                data: {
+                    query:$('#provinsival').val() + ' ' + $('#kotaval').val() + ' ' + $('#kecamatanval').val() + ' ' + $('#alamat').val(),
+                    key:'AIzaSyDHlQ7ea5Zqvr3mOUSQSd7djmnGCtPkw9A'
+                },
+                success: function(data) {
+                     var results = data.results;
 
-        //              console.log(results[0].geometry.location.lat);
-        //              console.log(results[0].geometry.location.lng);
-        //              $('#latitude').val(results[0].geometry.location.lat);
-        //              $('#longitude').val(results[0].geometry.location.lng);
-        //              initMap(results[0].geometry.location.lat, results[0].geometry.location.lng);
-        //         },
-        //     });
-            $('#latitude').val(3.443);
-            $('#longitude').val(9.88);
+                     console.log(results[0].geometry.location.lat);
+                     console.log(results[0].geometry.location.lng);
+                     $('#latitude').val(results[0].geometry.location.lat);
+                     $('#longitude').val(results[0].geometry.location.lng);
+                     initMap(results[0].geometry.location.lat, results[0].geometry.location.lng);
+                },
+            });
+            
+            // $('#latitude').val(3.443);
+            // $('#longitude').val(9.88);
         });
     </script>
 @endsection
