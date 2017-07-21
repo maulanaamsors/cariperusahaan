@@ -77,7 +77,7 @@ class PerushaanController extends Controller
 
     public function home(){
         
-        return view('home');
+        return view('master');
     }
 
     public function formlogin(){
