@@ -57,7 +57,7 @@ class PerushaanController extends Controller
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $picture = date('His').$filename;
-                $destinationPath = base_path() . '\storage\app\public\images';  
+                $destinationPath = base_path() . '\public\images';  
                 $file->move($destinationPath, $picture);
 
                 $photo = new Photos;
@@ -77,7 +77,7 @@ class PerushaanController extends Controller
 
     public function home(){
         
-        return view('master');
+        return view('masteri');
     }
 
     public function formlogin(){
