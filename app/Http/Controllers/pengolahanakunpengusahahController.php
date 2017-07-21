@@ -21,7 +21,7 @@ class pengolahanakunpengusahahController extends Controller
             Pemilik_usaha::where('id_pemilik', $req->id_pemilik)
             ->update(['active' => '1' ]);
 
-            $pemilik=Pemilik_usaha::where('id_pemilik', $req->id_pemilik)-first();
+            $pemilik=Pemilik_usaha::where('id_pemilik', $req->id_pemilik)->first();
             
 
             Mail::to($pemilik->email)->send(new ActivateUser());
