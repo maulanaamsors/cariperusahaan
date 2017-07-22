@@ -19,6 +19,8 @@ Route::get('/pemilik/login','PerushaanController@formlogin');
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
 Route::put('/admin/olahpemilik', 'pengolahanakunpengusahahController@updateAction');
 Route::get('/admin/login','AdminController@formlogin');
+//CRUD Olah Data Usaha Admin
+Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
 
 /*Route::get('/storage/{file_name}',
 function ($file_name){

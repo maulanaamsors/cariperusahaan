@@ -8,4 +8,8 @@ class Perusahaan extends Model
 {
     protected $table = 'perusahaan';
     public $timestamps = false;
+
+    public function Pemilik_usaha(){
+   		return $this->belongsTo('App\Pemilik_usaha','id_pemilik');
+   }
 }

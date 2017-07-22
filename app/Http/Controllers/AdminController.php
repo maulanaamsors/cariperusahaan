@@ -10,7 +10,7 @@ class AdminController extends Controller
         return view('hala.welcome');
     }
     
-    public function form(){
-        return view('hala.welcome');
+    public function formlogin(){
+        return view('admin.login');
     }
 }
