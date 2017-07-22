@@ -9,7 +9,7 @@
 					<form role="form">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="No.KTP" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="No.KTP" name="noktp" type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">

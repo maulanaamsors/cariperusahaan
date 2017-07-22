@@ -84,4 +84,12 @@ class PerushaanController extends Controller
         
         return view('pemilik.login');
     }
+
+    public function olahdatausaha(){
+
+       $dataperusahaan = Perusahaan::all();
+       
+        return view('admin.olahdatausaha',['results'=> $dataperusahaan]);
+    }
+
 }
