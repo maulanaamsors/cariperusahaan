@@ -21,4 +21,5 @@ Route::get('/listprovinsi', 'ApiPrusahaanController@getListProvinsi');
 Route::get('/listkota', 'ApiPrusahaanController@getListKota');
 Route::get('/listkecamatan', 'ApiPrusahaanController@getListKecamatan');
 Route::get('/listperusahaan', 'ApiPrusahaanController@getListPerusahaan');
+Route::get('/listsektor', 'ApiPrusahaanController@getListSektor');
 Route::get('/perusahaan/{id_prusahaan}', 'ApiPrusahaanController@getPerusahaan');

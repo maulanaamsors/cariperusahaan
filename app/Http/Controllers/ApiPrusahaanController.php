@@ -8,6 +8,7 @@ use App\Kota;
 use App\Kecamatan;
 use App\Photos;
 use App\Perusahaan;
+use App\Sektor;
 use DB;
 
 class ApiPrusahaanController extends Controller
@@ -46,11 +47,22 @@ class ApiPrusahaanController extends Controller
             "status"=>200 , 
             "message"=>"get data success",
             "results"=>$listPerusahaan
-            ]);  
+        ]);  
+    }
+
+    public function getListSektor(){
+        $listSektor = Sektor::all();
+
+        return response()->json([
+            "status"=>200 , 
+            "message"=>"get data success",
+            "results"=>$listSektor
+        ]);  
     }
 
     public function getPerusahaan($id_prusahaan){
         try{
+            $result = new Perusahaan;
             $result = Perusahaan::where('id_prusahaan', $id_prusahaan)->first();
             $photos = Photos::where('id_prusahaan', $id_prusahaan)->get();
 
@@ -58,13 +70,13 @@ class ApiPrusahaanController extends Controller
                 "status"=>200 , 
                 "message"=>"get data ". $result->nama_usaha ." success",
                 "results"=>[
-                    "data"=>$result,
+                    //"data"=>$result,
                     "photos"=>$photos
                 ]]); 
         }catch(\Exception $e){
             return response()->json([
                 "status"=>505, 
-                "message"=>"some things worng"]);
+                "message"=>"Error ". $e]);
         }
     }
 }
