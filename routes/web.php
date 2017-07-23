@@ -26,6 +26,7 @@ Route::get('/pemilik/editperusahaan', 'PerushaanController@getEdit');
 Route::post('/pemilik/editperusahaan', 'PerushaanController@putEdit');
 Route::get('/pemilik/editphotoperusahaan', 'PerushaanController@getEditPhoto');
 Route::get('/pemilik/profile/{id_pemilik}', 'Pemilik_UsahaController@profile');
+Route::get('/pemilik/profile/{id_pemilik}/pengaturan', 'Pemilik_UsahaController@formeditprofile');
 //Route for Admin
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
 Route::get('/admin/profile', 'AdminController@index');
