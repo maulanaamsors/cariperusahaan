@@ -140,8 +140,15 @@ class PerushaanController extends Controller
 
     public function olahdatausaha(){
        $dataperusahaan = Perusahaan::all();
-       
+
         return view('admin.olahdatausaha',['results'=> $dataperusahaan]);
+    }
+
+    public function editdatausaha(){
+
+       $dataperusahaan = Perusahaan::all();
+       
+        return view('admin.editdatausaha',['results'=> $dataperusahaan]);
     }
 
 }

@@ -28,19 +28,13 @@ Route::post('/pemilik/editperusahaan', 'PerushaanController@putEdit');
 //Route for Admin
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
 Route::get('/admin/profile', 'AdminController@index');
+Route::get('/pemilik/login','Pemilik_usahaController@formlogin');
+Route::get('/pemilik/signup','Pemilik_usahaController@formsignup');
+Route::get('/pemilik/lupapassword','Pemilik_usahaController@formlupapassword');
+Route::get('/admin/profile', 'AdminController@index');
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
 Route::put('/admin/olahpemilik', 'pengolahanakunpengusahahController@updateAction');
 
-/*Route::get('/storage/{file_name}',
-function ($file_name){
-    return Image::make(storage_path('public/images'. $file_name))->response();
-});*/
-
+//send email
 Route::get('/sendemail', 'HomeController@email');
-
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

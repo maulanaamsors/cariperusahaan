@@ -33,11 +33,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+          <a class="navbar-brand" href="#"><span>Pemilik</span>Usaha</a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
-              <a href="{{ url('/login') }}" class="btn btn-primary" data-toggle="dropdown">Login </a> &nbsp;
-              <a href="#" class="btn btn-primary" data-toggle="dropdown">Register </a> &nbsp;
+              <a href="{{url('pemilik/login')}}" class="dropdown-toggle" data-toggle="dropdown">Login </a> &nbsp;
+              <a href="{{url('pemilik/singup')}}" class="dropdown-toggle" data-toggle="dropdown">Register </a>
               <a href="#" class="btn btn-primary filter" onclick="return filter();" data-toggle="dropdown">Filter </a>
             </li>
           </ul>
