@@ -13,6 +13,7 @@ class LoginPemilikController extends Controller
     public function login(Request $req){
         $count = Pemilik_usaha::where('no_ktp', $req->input('ktp'))
         ->where('password', $req->input('password'))
+        ->where('active', '1')
         ->count();
 
         if ($count != 0){
@@ -22,11 +23,10 @@ class LoginPemilikController extends Controller
             return redirect('/pemilik');
         }else{
 
-           return view('master');  
+           return view('pemilik.login')->with('message','1');  
         }
        // $req->session()->set('ktp', $req->input('ktp'));
     }
-
 
     public function logout(){
         Session::put('id_pemilik', '');

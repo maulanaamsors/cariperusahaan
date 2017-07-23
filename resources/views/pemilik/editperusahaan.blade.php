@@ -196,7 +196,7 @@
             $('#provinsival').val($("#provinsi option:selected").text()); 
             $.ajax({
                 type: 'get',
-                crossDomain: true,
+                crossDomain: true,  
                 url: '{{ url("api/listkota") }}',
                 data: {
                     id:id_province

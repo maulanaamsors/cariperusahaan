@@ -1,6 +1,11 @@
 @extends('pemilik.master')
 
 @section('content')
+@if($message == '1')
+<div class="alert bg-warning" role="alert">
+	<svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg> Akun yang anda gunakan belum aktif, atau anda salah memasukan no ktp dan password <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
+@endif	
 <style>
 a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-weight: bold;  text-decoration: line-through;}a.lupa:hover, a.lupa:focus {  text-decoration: none; color:gray}
 </style>

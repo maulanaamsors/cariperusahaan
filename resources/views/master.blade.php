@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span>Conce</span>rns</a>
+          <a class="navbar-brand" href="#"><span>CONCERNS</span></a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
               <a href="{{url('/login')}}" >Login </a> &nbsp;
@@ -120,15 +120,13 @@
             <h4 id="namaPerusahaan" class="modal-title"></h4>
           </div>
           <div class="modal-body">
-           
-
 
            <div class="panel panel-default">
 					<div class="panel-heading"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Detail Info</div>
 					<div class="panel-body">
 						<form class="form-horizontal" action="" method="post">
 							<fieldset>
-								<!-- Name input-->
+								
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="name">Produk Utama</label>
 									<div class="col-md-9">
@@ -173,11 +171,10 @@
 
 							</fieldset>
 						</form>
+                        
 					</div>
-				</div>
+				</div>-
 				
-
-            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -257,7 +254,7 @@
                                                 
                                                 results.forEach(function(items) {
 
-                                                     $('#photo').append(' <div class="col-xs-6 col-md-3"><div class="panel panel-default"><div class="panel-body easypiechart-panel"><image src="/images/'+ items.photo_name +'" width="200px" height="200px">	</div></div></div>');
+                                                     $('#photo').append(' <image src="/images/'+ items.photo_name +'" width="270px" height="230px"/> &nbsp; &nbsp;');
 
                                                 });
                                         },

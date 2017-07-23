@@ -37,11 +37,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Concerns</span></a>
+				<a class="navbar-brand" href="#"><span>CONCERNS</span>Pemilik</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						@if(Request::path() == 'login')	
-						<a href="{{url('/singup')}}" >Register </a> &nbsp;
+						<a href="{{url('/signup')}}" >Register </a> &nbsp;
 						@else
 						    @if(Request::path() != 'signup')
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{Session::get('nama')}} <span class="caret"></span></a>

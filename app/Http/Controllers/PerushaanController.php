@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,6 +7,7 @@ use App\Perusahaan;
 use App\Photos;
 use App\Http\Requests\UploadRequest;
 use DB;
+use Session;
 
 class PerushaanController extends Controller
 {
@@ -19,7 +19,7 @@ class PerushaanController extends Controller
 
     public function dasboard(){
         $listPerusahaan = Perusahaan::join('master_kecam', 'master_kecam.kecam_id', 'perusahaan.kecam_id')
-        ->where('id_pemilik',2)->get();
+        ->where('id_pemilik', Session::get('id_pemilik'))->get();
 
         return view('pemilik.dasboard')
         ->with('results', $listPerusahaan);
@@ -43,7 +43,7 @@ class PerushaanController extends Controller
 
         $perusahaan = new Perusahaan;
         $perusahaan->nama_usaha = $req->input('nama_usaha');
-        $perusahaan->id_pemilik = 2;
+        $perusahaan->id_pemilik = Session::get('id_pemilik');
         $perusahaan->produk_utama = $req->input('produk_utama');
         $perusahaan->alamat = $req->input('alamat');
         $perusahaan->provinsi_id = $req->input('provinsi_id');
@@ -56,7 +56,7 @@ class PerushaanController extends Controller
         $perusahaan->id_sektor = $req->input('id_sektor');
         $perusahaan->save();
 
-        $id_perusahaan = Perusahaan::where('id_pemilik', 2)
+        $id_perusahaan = Perusahaan::where('id_pemilik', Session::get('id_pemilik'))
         ->where('nama_usaha', $req->input('nama_usaha'))->first();
 
         $picture = '';
@@ -183,7 +183,7 @@ class PerushaanController extends Controller
     
     public function formlogin(){
         
-        return view('pemilik.login');
+        return view('pemilik.login')->with('message','0');
     }
 
     public function olahdatausaha(){

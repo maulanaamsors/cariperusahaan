@@ -20,7 +20,6 @@
                         </div>
                     @endif
 
-                    {{  Session::get('id_pemilik') }}
                     <div class="container">
                             <div class="col-md-1">
                             </div>    
