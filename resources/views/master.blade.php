@@ -36,8 +36,10 @@
           <a class="navbar-brand" href="#"><span>CONCERNS</span></a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
+            @if(Session::get('id_pemilik') == '')
               <a href="{{url('/login')}}" >Login </a> &nbsp;
               <a href="{{url('/signup')}}" >Register </a> &nbsp;
+            @endif  
               <a href="#" class="btn btn-primary filter" onclick="return filter();" >Filter </a>
             </li>
           </ul>
