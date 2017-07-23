@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span>Pemilik</span>Usaha</a>
+          <a class="navbar-brand" href="#"><span>CONCERNS</span></a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
               <a href="{{url('pemilik/login')}}" class="dropdown-toggle" data-toggle="dropdown">Login </a> &nbsp;

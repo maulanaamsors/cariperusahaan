@@ -20,4 +20,10 @@ class Pemilik_UsahaController extends Controller
     public function formlupapassword(){
         return view('pemilik.lupapassword');
     }
+
+    public function profile($id_pemilik){
+        $datapemilik = Pemilik_usaha::find($id_pemilik);
+
+        return view ('pemilik.profile_pemilik',['results'=>$datapemilik]);
+    }
 }
