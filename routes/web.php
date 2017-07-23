@@ -14,8 +14,12 @@
 Route::get('/', 'PerushaanController@home');
 Route::get('/pemilik/tambahperusahaan', 'PerushaanController@index');
 Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
+Route::get('/pemilik/login','Pemilik_usahaController@formlogin');
+Route::get('/pemilik/signup','Pemilik_usahaController@formsignup');
+Route::get('/pemilik/lupapassword','Pemilik_usahaController@formlupapassword');
+
 Route::get('/admin/profile', 'AdminController@index');
-Route::get('/pemilik/login','PerushaanController@formlogin');
+
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
 Route::put('/admin/olahpemilik', 'pengolahanakunpengusahahController@updateAction');
 Route::get('/admin/login','AdminController@formlogin');

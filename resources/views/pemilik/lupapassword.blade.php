@@ -7,22 +7,18 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
 	<div class="row" style="margin-top:10%">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
-				<div class="panel-heading">.: Login Pemilik Usaha</div>
+				<div class="panel-heading">.: Lupa Password</div>
 				<div class="panel-body">
 					<form role="form">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="No.KTP" name="noktp" type="text" autofocus="">
+                            <div class="alert bg-primary" role="alert">
+					            <span class="glyphicon glyphicon-info-sign"></span> Mohon masukan alamat email kamu. Kamu akan menerima password lewat email
+				            </div>
+
+								<input class="form-control" placeholder="Email" name="email" type="text" autofocus="">
 							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
-							</div>
-							<div class="form-group">
-								<label>
-									<b><a class="lupa" href="{{url('pemilik/lupapassword')}}" > Lupa Password ? </a> </b>
-								</label>
-							</div>
-							<input type="submit" value="Login" class="btn btn-primary">
+							<input type="submit" value="Dapatkan" class="btn btn-primary">
 						</fieldset>
 					</form>
 				</div>
