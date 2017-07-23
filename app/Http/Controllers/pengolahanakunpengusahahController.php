@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pemilik_usaha;
 use Mail;
 use App\Mail\ActivateUser;
+use DB;
 
 class pengolahanakunpengusahahController extends Controller
 {

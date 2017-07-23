@@ -37,17 +37,27 @@ class ApiPrusahaanController extends Controller
 
         return response()->json([
             "results"=>$results
-            ]);
+        ]);
     }
 
-    public function getListPerusahaan(){
-        $listPerusahaan = Perusahaan::all();
+    public function getListPerusahaan($kecamatan){
+        $listPerusahaan = Perusahaan::join('master_kecam', 'master_kecam.kecam_id', 'perusahaan.kecam_id')
+        ->where('nama_kecam', 'like' ,'%'.$kecamatan.'%')->get();
 
-        return response()->json([
+        if ($listPerusahaan == null){
+            $listPerusahaanAll = Perusahaan::all();
+            return response()->json([
+            "status"=>200 , 
+            "message"=>"get data success",
+            "results"=>$listPerusahaanAll
+        ]); 
+        }else{
+            return response()->json([
             "status"=>200 , 
             "message"=>"get data success",
             "results"=>$listPerusahaan
-        ]);  
+            ]);
+        } 
     }
 
     public function getListSektor(){

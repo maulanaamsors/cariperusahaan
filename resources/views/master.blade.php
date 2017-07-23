@@ -36,7 +36,7 @@
           <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
-              <a href="{{url('pemilik/login')}}" class="btn btn-primary" data-toggle="dropdown">Login </a> &nbsp;
+              <a href="{{ url('/login') }}" class="btn btn-primary" data-toggle="dropdown">Login </a> &nbsp;
               <a href="#" class="btn btn-primary" data-toggle="dropdown">Register </a> &nbsp;
               <a href="#" class="btn btn-primary filter" onclick="return filter();" data-toggle="dropdown">Filter </a>
             </li>

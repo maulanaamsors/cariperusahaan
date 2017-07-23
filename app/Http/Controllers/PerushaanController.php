@@ -8,6 +8,7 @@ use App\Perusahaan;
 use App\Photos;
 use App\Http\Requests\UploadRequest;
 
+
 class PerushaanController extends Controller
 {
     public function index(){
@@ -79,14 +80,13 @@ class PerushaanController extends Controller
         
         return view('master');
     }
-
+    
     public function formlogin(){
         
         return view('pemilik.login');
     }
 
     public function olahdatausaha(){
-
        $dataperusahaan = Perusahaan::all();
        
         return view('admin.olahdatausaha',['results'=> $dataperusahaan]);
