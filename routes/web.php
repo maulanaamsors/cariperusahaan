@@ -15,13 +15,15 @@
 Auth::routes();
 Route::get('/home', 'PerushaanController@home');
 
-
-//Route for User
+//Route for Pemilik
 Route::get('/', 'PerushaanController@home');
 Route::get('/login','PerushaanController@formlogin');
 Route::post('/login','LoginPemilikController@guard');
+Route::get('/pemilik', 'PerushaanController@dasboard');
 Route::get('/pemilik/tambahperusahaan', 'PerushaanController@index');
 Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
+Route::get('/pemilik/editperusahaan', 'PerushaanController@getEdit');
+Route::post('/pemilik/editperusahaan', 'PerushaanController@putEdit');
 
 //Route for Admin
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
@@ -38,3 +40,7 @@ Route::get('/sendemail', 'HomeController@email');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

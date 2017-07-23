@@ -26,23 +26,23 @@
                             <div class="col-md-8">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                    <form class="form-horizontal form-material" method="POST" action="" enctype="multipart/form-data">
+                                    <form class="form-horizontal form-material" method="post" action="" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label class="col-md-12">Nama Usaha</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="nama_usaha" placeholder="ex : PT. Indofood, PT. Sarimurni...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->nama_usaha }}" type="text" name="nama_usaha" placeholder="ex : PT. Indofood, PT. Sarimurni...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-12">Produk Utama</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->produk_utama }}" type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-12">Phone No</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->telp }}" type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
@@ -74,7 +74,7 @@
                                         <div class="form-group">
                                             <label class="col-md-12">Alamat</label>
                                             <div class="col-md-12">
-                                                <input id="alamat" type="text" name="alamat" placeholder="ex: Jl. Cempaka VI No.1 ...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->alamat }}" id="alamat" type="text" name="alamat" placeholder="ex: Jl. Cempaka VI No.1 ...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
@@ -117,10 +117,11 @@
 
                                         <br>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="id_perusahaan" value="{{ $result->id_prusahaan }}">
 
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <input type="submit" class="btn btn-success" value="Selesai"></input>
+                                                <input type="submit" class="btn btn-success" value="Simpan"></input>
                                             </div>
                                         </div>
                                     </form>

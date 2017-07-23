@@ -44,7 +44,7 @@ class ApiPrusahaanController extends Controller
         $listPerusahaan = Perusahaan::join('master_kecam', 'master_kecam.kecam_id', 'perusahaan.kecam_id')
         ->where('nama_kecam', 'like' ,'%'.$kecamatan.'%')->get();
 
-        if ($listPerusahaan == null){
+        if ($listPerusahaan == ''){
             $listPerusahaanAll = Perusahaan::all();
             return response()->json([
             "status"=>200 , 
