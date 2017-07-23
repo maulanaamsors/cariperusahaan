@@ -30,7 +30,7 @@ class Pemilik_UsahaController extends Controller
         $pemilik = Pemilik_usaha::where('email', $req->input('email'))->first();
 
         Session::put('password',$pemilik->password);
-        Mail::to($req->input('email'))->send(new ActivateUser());
+        Mail::to($req->input('email'))->send(new FotgotPassword());
 
 
         return view('pemilik.lupapassword')->with('message' , '1');
