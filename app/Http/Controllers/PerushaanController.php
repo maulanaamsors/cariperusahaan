@@ -8,7 +8,6 @@ use App\Perusahaan;
 use App\Photos;
 use App\Http\Requests\UploadRequest;
 
-
 class PerushaanController extends Controller
 {
     public function index(){
@@ -106,9 +105,7 @@ class PerushaanController extends Controller
             'longitude' => 'required',
             'skala' => 'required',
             'id_sektor' => 'required',
-            'images' => 'required',
         ]);
-
 
         Perusahaan::where('id_prusahaan', $req->input('id_perusahaan'))
         ->update([
@@ -126,6 +123,19 @@ class PerushaanController extends Controller
         ]);
 
         return redirect('/pemilik');
+    }
+
+    public function getEditPhoto(Request $req){
+        $results = Photos::where('id_prusahaan', $req->input('id_perusahaan'))->get();
+
+
+        // return response()->json([
+        //     "status"=>200 , 
+        //     "message"=>"get data success",
+        //     "results"=>$results
+        //     ]);
+        return view('pemilik.editphoto')
+        ->with('results', $results);
     }
 
     public function home(){

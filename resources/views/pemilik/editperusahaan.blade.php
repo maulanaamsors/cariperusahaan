@@ -6,6 +6,11 @@
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">	
         <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Data Perusahaan</h1>
+        </div>
+    </div><!--/.row-->
+        <div class="row">
                     @if(Session::has('message'))
                         <p class="alert alert-info">{{ Session::get('message') }}</p>
                     @endif
@@ -49,7 +54,7 @@
                                             <label class="col-sm-12">Skala</label>
                                             <div class="col-sm-12">
                                                 <select name="skala" class="form-control form-control-line">
-                                                    <option id="kecamatan-option" value="0">Pilih-Skala</option>
+                                                    <option id="kecamatan-option" value="">Pilih-Skala</option>
                                                     <option id="kecamatan-option" value="Kecil">Kecil</option>
                                                     <option id="kecamatan-option" value="Menengah">Menengah</option> 
                                                 </select>
@@ -81,7 +86,7 @@
                                             <label class="col-sm-12">Select Province</label>
                                             <div class="col-sm-12">
                                                 <select id="provinsi" name="provinsi_id" class="form-control form-control-line">
-                                                    <option id="provinsi-option" value="0">Pilih-Provinsi</option> 
+                                                    <option id="provinsi-option" value="">Pilih-Provinsi</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -90,7 +95,7 @@
                                             <label class="col-sm-12">Select Kota</label>
                                             <div class="col-sm-12">
                                                 <select id="kota" name="kota_id" class="form-control form-control-line">
-                                                    <option id="kota-option" value="0">Pilih-Kota</option> 
+                                                    <option id="kota-option" value="">Pilih-Kota</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -99,7 +104,7 @@
                                             <label class="col-sm-12">Select Kecamatan</label>
                                             <div class="col-sm-12">
                                                 <select id="kecamatan" name="kecam_id" class="form-control form-control-line">
-                                                    <option id="kecamatan-option" value="0">Pilih-Kecamatan</option> 
+                                                    <option id="kecamatan-option" value="">Pilih-Kecamatan</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -107,13 +112,6 @@
                                         <div id="map"></div>
 
                                         <br>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Pilih Gambar Perusahaan</label>
-                                            <div class="col-sm-12">
-                                                <input type="file" name="images[]" multiple/>
-                                            </div>
-                                        </div>
 
                                         <br>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

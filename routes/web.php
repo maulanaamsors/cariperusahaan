@@ -12,7 +12,7 @@
 */
 
 //Route for every user
-Auth::routes();
+Auth::routes(); 
 Route::get('/home', 'PerushaanController@home');
 
 //Route for Pemilik
@@ -24,6 +24,7 @@ Route::get('/pemilik/tambahperusahaan', 'PerushaanController@index');
 Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
 Route::get('/pemilik/editperusahaan', 'PerushaanController@getEdit');
 Route::post('/pemilik/editperusahaan', 'PerushaanController@putEdit');
+Route::get('/pemilik/editphotoperusahaan', 'PerushaanController@getEditPhoto');
 
 //Route for Admin
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
