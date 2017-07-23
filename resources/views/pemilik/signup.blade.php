@@ -1,4 +1,4 @@
-@extends('master')
+@extends('pemilik.master')
 
 @section('content')
 	<div class="row" style="margin-top:10%">

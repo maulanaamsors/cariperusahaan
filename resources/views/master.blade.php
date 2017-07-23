@@ -33,12 +33,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span>Pemilik</span>Usaha</a>
+          <a class="navbar-brand" href="#"><span>Conce</span>rns</a>
           <ul class="user-menu">
             <li class="dropdown pull-right">
-              <a href="{{url('pemilik/login')}}" class="dropdown-toggle" data-toggle="dropdown">Login </a> &nbsp;
-              <a href="{{url('pemilik/singup')}}" class="dropdown-toggle" data-toggle="dropdown">Register </a>
-              <a href="#" class="btn btn-primary filter" onclick="return filter();" data-toggle="dropdown">Filter </a>
+              <a href="{{url('/login')}}" >Login </a> &nbsp;
+              <a href="{{url('/signup')}}" >Register </a> &nbsp;
+              <a href="#" class="btn btn-primary filter" onclick="return filter();" >Filter </a>
             </li>
           </ul>
         </div>			
@@ -110,6 +110,83 @@
       </div>
   </div>
 
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 id="namaPerusahaan" class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+           
+
+
+           <div class="panel panel-default">
+					<div class="panel-heading"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Detail Info</div>
+					<div class="panel-body">
+						<form class="form-horizontal" action="" method="post">
+							<fieldset>
+								<!-- Name input-->
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">Produk Utama</label>
+									<div class="col-md-9">
+                                        <div id="produkutama" class="text-muted"></div>
+									</div>
+								</div>
+
+                                <div class="form-group">
+									<label class="col-md-3 control-label" for="name">Sektor</label>
+									<div class="col-md-9">
+                                        <div id="sektor" class="text-muted"></div>
+									</div>
+								</div>
+
+                                 <div class="form-group">
+									<label class="col-md-3 control-label" for="name">Skala</label>
+									<div class="col-md-9">
+                                        <div id="skala" class="text-muted"></div>
+									</div>
+								</div>
+
+                                 <div class="form-group">
+									<label class="col-md-3 control-label" for="name">Alamat</label>
+									<div class="col-md-9">
+                                        <div id="alamat" class="text-muted"></div>
+									</div>
+								</div>
+
+                                 <div class="form-group">
+									<label class="col-md-3 control-label" for="name">Telp</label>
+									<div class="col-md-9">
+                                        <div id="telp" class="text-muted"></div>
+									</div>
+								</div>
+
+                                <br>
+
+                                <div id="photo" class="row">
+                                    
+                                </div>    
+							
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				
+
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
  <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{ asset('js/chart.min.js')}}"></script>
@@ -149,7 +226,7 @@
                                 mapTypeId: google.maps.MapTypeId.ROADMAP
                             });
 
-                            var infowindow = new google.maps.InfoWindow();
+                            var infowindow = new google.maps.InfoWindow();  
                             var marker;
                             var i = 0;
 
@@ -160,11 +237,42 @@
                                 });
 
                                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function(){
+                                    $("#myModal").modal();
+                                    
+                                    $('#namaPerusahaan').replaceWith('<h4 id="namaPerusahaan" class="modal-title">'+ item.nama_usaha +'</h4>');
+                                    $('#produkutama').replaceWith('<div id="produkutama" class="text-muted">'+ item.produk_utama +'</div>');
+                                    $('#skala').replaceWith('<div id="skala" class="text-muted">'+item.skala+'</div>');
+                                    $('#alamat').replaceWith('<div id="alamat" class="text-muted">'+ item.alamat+'</div> ');
+                                    $('#telp').replaceWith('<div id="telp" class="text-muted">'+ item.telp+'</div> ');
+
+
+                                    $.ajax({
+                                        type:'get',
+                                        url:'/api/listphoto/'+ item.id_prusahaan,    
+                                        data:{
+                                            _token: '{{ csrf_token() }}'},
+                                            success:function(data){
+                                                var results = data.results;
+                                                
+                                                results.forEach(function(items) {
+
+                                                     $('#photo').append(' <div class="col-xs-6 col-md-3"><div class="panel panel-default"><div class="panel-body easypiechart-panel"><image src="/images/'+ items.photo_name +'" width="200px" height="200px">	</div></div></div>');
+
+                                                });
+                                        },
+                                    });
+
+                                    console.log(item.id_prusahaan);
+                                }})(marker, i));
+
+
+                                /*google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                 return function() {
                                     infowindow.setContent(item.nama_usaha);
                                     infowindow.open(map, marker);
                                 }
-                                })(marker, i));
+                                })(marker, i));*/
 
                                 i++;
                             });
@@ -173,6 +281,8 @@
                                 handleLocationError(true, infoWindow, map.getCenter());
                             });
                             } else {
+
+
                             // Browser doesn't support Geolocation
                             navigator.geolocation.getCurrentPosition(function(position) {
                             

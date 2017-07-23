@@ -24,7 +24,7 @@ class UploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'images' => 'require'
+            //'images' => 'require'
         ];
     }
 }

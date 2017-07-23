@@ -11,7 +11,6 @@ class Pemilik_UsahaController extends Controller
         return view('pemilik.login');
     }
 
-
     public function formsignup()
     {
          return view('pemilik.signup');

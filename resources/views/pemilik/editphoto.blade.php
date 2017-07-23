@@ -27,16 +27,18 @@
     <div class="row">
         <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading"></div>
+            <div class="panel-heading">
+                <label class="col-sm-12">Tambah Gambar Perusahaan</label>
+            </div>
             <div class="panel-body">
                 <form class="form-horizontal form-material" method="post" action="" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label class="col-sm-12">Tambah Gambar Perusahaan</label>
+                    <div class="form-group">                        
                         <div class="col-sm-12">
                             <input type="file" name="images[]" multiple/>
                         </div>
                     </div>
-
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="id_perusahaan" value="{{ $id_perusahaan }}">
                     <div class="form-group">
                         <div class="col-sm-12">
                             <input type="submit" class="btn btn-success" value="Simpan"></input>

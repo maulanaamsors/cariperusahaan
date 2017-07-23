@@ -20,6 +20,7 @@
                         </div>
                     @endif
 
+                    {{  Session::get('id_pemilik') }}
                     <div class="container">
                             <div class="col-md-1">
                             </div>    
@@ -81,7 +82,7 @@
                                             <label class="col-sm-12">Select Province</label>
                                             <div class="col-sm-12">
                                                 <select id="provinsi" name="provinsi_id" class="form-control form-control-line">
-                                                    <option id="provinsi-option" value="0">Pilih-Provinsi</option> 
+                                                    <option id="provinsi-option" value="">Pilih-Provinsi</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -90,7 +91,7 @@
                                             <label class="col-sm-12">Select Kota</label>
                                             <div class="col-sm-12">
                                                 <select id="kota" name="kota_id" class="form-control form-control-line">
-                                                    <option id="kota-option" value="0">Pilih-Kota</option> 
+                                                    <option id="kota-option" value="">Pilih-Kota</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -99,7 +100,7 @@
                                             <label class="col-sm-12">Select Kecamatan</label>
                                             <div class="col-sm-12">
                                                 <select id="kecamatan" name="kecam_id" class="form-control form-control-line">
-                                                    <option id="kecamatan-option" value="0">Pilih-Kecamatan</option> 
+                                                    <option id="kecamatan-option" value="">Pilih-Kecamatan</option> 
                                                 </select>
                                             </div>
                                         </div>

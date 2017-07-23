@@ -7,6 +7,7 @@ use App\Sektor;
 use App\Perusahaan;
 use App\Photos;
 use App\Http\Requests\UploadRequest;
+use DB;
 
 class PerushaanController extends Controller
 {
@@ -135,7 +136,44 @@ class PerushaanController extends Controller
         //     "results"=>$results
         //     ]);
         return view('pemilik.editphoto')
-        ->with('results', $results);
+        ->with('results', $results)
+        ->with('id_perusahaan', $req->input('id_perusahaan'));
+    }
+
+    public function postEditPhoto(Request $req, UploadRequest $uReq){
+        $this->validate($req, [
+            'images' => 'required',
+        ]);
+
+        $picture = '';
+        //if ($uReq->hasFile('images')) {
+        $files = $uReq->file('images');
+        foreach($files as $file){
+            $filename = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $picture = date('His').$filename;
+            $destinationPath = base_path() . '\public\images';  
+            $file->move($destinationPath, $picture);
+
+            $photo = new Photos;
+            $photo->id_prusahaan = $req->input('id_perusahaan');
+            $photo->photo_name =  date('His').$filename;
+            $photo->save();
+        }
+        //}
+
+        return redirect('/pemilik');
+    }
+
+    public function deleteEditPhoto(Request $req){
+
+        DB::table('perusahaan')->where('id_prusahaan', $req->input('id_perusahaan'))->delete(); 
+
+        return response()->json([
+            "status"=>200 , 
+            "message"=>"success delete id". $req->input('id_perusahaan'),
+            
+        ]);
     }
 
     public function home(){

@@ -60,6 +60,17 @@ class ApiPrusahaanController extends Controller
         } 
     }
 
+    public function getListAllPerusahaan(){
+        $listPerusahaan = Perusahaan::all();
+
+        $listPerusahaanAll = Perusahaan::all();
+        return response()->json([
+        "status"=>200 , 
+        "message"=>"get data success",
+        "results"=>$listPerusahaanAll
+        ]);
+    }
+
     public function getListSektor(){
         $listSektor = Sektor::all();
 
@@ -68,6 +79,15 @@ class ApiPrusahaanController extends Controller
             "message"=>"get data success",
             "results"=>$listSektor
         ]);  
+    }
+
+    public function getListPhoto($id_prusahaan){
+        $photos = Photos::where('id_prusahaan', $id_prusahaan)->get();
+        return response()->json([
+            "status"=>200 , 
+            "message"=>"get data success",
+            "results"=>$photos
+            ]);
     }
 
     public function getPerusahaan($id_prusahaan){

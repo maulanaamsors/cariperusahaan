@@ -1,3 +1,4 @@
+@if(Session::get('id_admin') != '' or Request::path() == 'admin/login')
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +30,22 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#"><span>Concerns</span>Admin</a>
+				@if(Request::path() != 'admin/login')	
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
 							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
 						</ul>
 					</li>
 				</ul>
+				@endif
 			</div>			
 		</div><!-- /.container-fluid -->
 	</nav>
     
+	@if(Request::path() != 'admin/login')		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 	<br>
 		<ul class="nav menu">
@@ -53,7 +56,7 @@
 			<li><a href="forms.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
 			<li><a href="panels.html"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>
 			<li><a href="icons.html"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
-			<li class="parent ">
+			<li class="parent">
 				<a href="#">
 					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg> Dropdown </span>
 				</a>
@@ -80,6 +83,7 @@
 		</ul>
 
 	</div><!--/.sidebar-->
+	@endif
 
     @yield('content')
     <script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
@@ -92,3 +96,6 @@
     </body>
 
 </html>
+@else
+	<script> window.location.href = '/'; </script>
+@endif

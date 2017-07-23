@@ -12,25 +12,27 @@
 */
 
 //Route for every user
-Auth::routes(); 
 Route::get('/home', 'PerushaanController@home');
 
 //Route for Pemilik
 Route::get('/', 'PerushaanController@home');
 Route::get('/login','PerushaanController@formlogin');
-Route::post('/login','LoginPemilikController@guard');
+Route::get('/logout','LoginPemilikController@logout');
+Route::post('/login','LoginPemilikController@login');
+Route::get('/signup','Pemilik_usahaController@formsignup');
 Route::get('/pemilik', 'PerushaanController@dasboard');
 Route::get('/pemilik/tambahperusahaan', 'PerushaanController@index');
 Route::post('/pemilik/tambahperusahaan', 'PerushaanController@create');
 Route::get('/pemilik/editperusahaan', 'PerushaanController@getEdit');
 Route::post('/pemilik/editperusahaan', 'PerushaanController@putEdit');
 Route::get('/pemilik/editphotoperusahaan', 'PerushaanController@getEditPhoto');
+Route::post('/pemilik/editphotoperusahaan', 'PerushaanController@postEditPhoto');
+Route::delete('/pemilik/deletephotoperusahaan', 'PerushaanController@deleteEditPhoto');
 
 //Route for Admin
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
 Route::get('/admin/profile', 'AdminController@index');
-Route::get('/pemilik/login','Pemilik_usahaController@formlogin');
-Route::get('/pemilik/signup','Pemilik_usahaController@formsignup');
+Route::get('/admin/login', 'AdminController@formlogin');
 Route::get('/pemilik/lupapassword','Pemilik_usahaController@formlupapassword');
 Route::get('/admin/profile', 'AdminController@index');
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
