@@ -45,6 +45,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        //Admin custom driver.
+        'web_pemilik_usaha' => [
+            'driver' => 'session',
+            'provider' => 'Pemilik_usaha',
+        ],
     ],
 
     /*
@@ -70,6 +76,11 @@ return [
             'model' => App\User::class,
         ],
 
+        //User Provider for admin
+        'Pemilik_usaha' => [
+            'driver' => 'eloquent',
+            'model' => App\Pemilik_usaha::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

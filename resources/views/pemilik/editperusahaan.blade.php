@@ -6,6 +6,11 @@
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">	
         <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Data Perusahaan</h1>
+        </div>
+    </div><!--/.row-->
+        <div class="row">
                     @if(Session::has('message'))
                         <p class="alert alert-info">{{ Session::get('message') }}</p>
                     @endif
@@ -26,30 +31,30 @@
                             <div class="col-md-8">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                    <form class="form-horizontal form-material" method="POST" action="" enctype="multipart/form-data">
+                                    <form class="form-horizontal form-material" method="post" action="" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label class="col-md-12">Nama Usaha</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="nama_usaha" placeholder="ex : PT. Indofood, PT. Sarimurni...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->nama_usaha }}" type="text" name="nama_usaha" placeholder="ex : PT. Indofood, PT. Sarimurni...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-12">Produk Utama</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->produk_utama }}" type="text" name="produk_utama" placeholder="ex : Lenovo...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-12">Phone No</label>
                                             <div class="col-md-12">
-                                                <input type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->telp }}" type="text" name="telp" placeholder="123 456 7890" class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-12">Skala</label>
                                             <div class="col-sm-12">
                                                 <select name="skala" class="form-control form-control-line">
-                                                    <option id="kecamatan-option" value="0">Pilih-Skala</option>
+                                                    <option id="kecamatan-option" value="">Pilih-Skala</option>
                                                     <option id="kecamatan-option" value="Kecil">Kecil</option>
                                                     <option id="kecamatan-option" value="Menengah">Menengah</option> 
                                                 </select>
@@ -74,14 +79,14 @@
                                         <div class="form-group">
                                             <label class="col-md-12">Alamat</label>
                                             <div class="col-md-12">
-                                                <input id="alamat" type="text" name="alamat" placeholder="ex: Jl. Cempaka VI No.1 ...." class="form-control form-control-line"> </div>
+                                                <input value="{{ $result->alamat }}" id="alamat" type="text" name="alamat" placeholder="ex: Jl. Cempaka VI No.1 ...." class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-12">Select Province</label>
                                             <div class="col-sm-12">
                                                 <select id="provinsi" name="provinsi_id" class="form-control form-control-line">
-                                                    <option id="provinsi-option" value="0">Pilih-Provinsi</option> 
+                                                    <option id="provinsi-option" value="">Pilih-Provinsi</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -90,7 +95,7 @@
                                             <label class="col-sm-12">Select Kota</label>
                                             <div class="col-sm-12">
                                                 <select id="kota" name="kota_id" class="form-control form-control-line">
-                                                    <option id="kota-option" value="0">Pilih-Kota</option> 
+                                                    <option id="kota-option" value="">Pilih-Kota</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -99,7 +104,7 @@
                                             <label class="col-sm-12">Select Kecamatan</label>
                                             <div class="col-sm-12">
                                                 <select id="kecamatan" name="kecam_id" class="form-control form-control-line">
-                                                    <option id="kecamatan-option" value="0">Pilih-Kecamatan</option> 
+                                                    <option id="kecamatan-option" value="">Pilih-Kecamatan</option> 
                                                 </select>
                                             </div>
                                         </div>
@@ -108,19 +113,13 @@
 
                                         <br>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Pilih Gambar Perusahaan</label>
-                                            <div class="col-sm-12">
-                                                <input type="file" name="images[]" multiple/>
-                                            </div>
-                                        </div>
-
                                         <br>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="id_perusahaan" value="{{ $result->id_prusahaan }}">
 
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <input type="submit" class="btn btn-success" value="Selesai"></input>
+                                                <input type="submit" class="btn btn-success" value="Simpan"></input>
                                             </div>
                                         </div>
                                     </form>

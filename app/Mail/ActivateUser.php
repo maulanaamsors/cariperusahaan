@@ -18,7 +18,7 @@ class ActivateUser extends Mailable
      */
     public function __construct()
     {
-        //
+        // 
     }
 
     /**

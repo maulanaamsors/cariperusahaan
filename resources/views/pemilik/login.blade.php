@@ -1,4 +1,4 @@
-@extends('master')
+@extends('pemilik.master')
 
 @section('content')
 <style>
@@ -9,10 +9,11 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">.: Login Pemilik Usaha</div>
 				<div class="panel-body">
-					<form role="form">
+					<form role="form" method="POST" action="{{ url('/login') }}">
+						{{ csrf_field() }}
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="No.KTP" name="noktp" type="text" autofocus="">
+								<input class="form-control" placeholder="email" name="email" type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -22,6 +23,9 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
 									<b><a class="lupa" href="{{url('pemilik/lupapassword')}}" > Lupa Password ? </a> </b>
 								</label>
 							</div>
+							<button type="submit" class="btn btn-primary">
+                                    Login
+                            </button>
 							<input type="submit" value="Login" class="btn btn-primary">
 						</fieldset>
 					</form>
