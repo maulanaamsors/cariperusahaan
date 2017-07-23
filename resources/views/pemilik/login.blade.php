@@ -18,7 +18,7 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
 						{{ csrf_field() }}
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="email" name="ktp" type="text" autofocus="">
+								<input class="form-control" placeholder="No Ktp" name="ktp" type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
