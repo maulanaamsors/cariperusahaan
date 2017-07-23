@@ -33,13 +33,14 @@ Route::get('/pemilik/profile/{id_pemilik}', 'Pemilik_UsahaController@profile');
 Route::get('/pemilik/profile/{id_pemilik}/pengaturan', 'Pemilik_UsahaController@formeditprofile');
 
 //Route for Admin
-Route::get('/admin','PerushaanController@olahdatausaha');
+Route::get('/admin','pengolahanakunpengusahahController@index');
 Route::get('/admin/olahdatausaha','PerushaanController@olahdatausaha');
 Route::get('/admin/profile', 'AdminController@index');
 Route::get('/admin/login', 'AdminController@formlogin');
 Route::post('/admin/login', 'AdminController@login');
 Route::get('/admin/logout', 'AdminController@logout');
 Route::get('/pemilik/lupapassword','Pemilik_usahaController@formlupapassword');
+Route::post('/pemilik/lupapassword','Pemilik_usahaController@postLupapassword');
 Route::get('/admin/profile', 'AdminController@index');
 Route::get('/admin/olahpemilik', 'pengolahanakunpengusahahController@index');
 Route::put('/admin/olahpemilik', 'pengolahanakunpengusahahController@updateAction');

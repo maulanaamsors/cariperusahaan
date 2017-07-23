@@ -1,6 +1,11 @@
 @extends('master2')
 
 @section('content')
+@if($message == '1')
+		<div class="alert bg-success" role="alert">
+					<svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg> Silahkan cek kontak masuk atau spam pada email anda <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+				</div>
+		@endif		
 <style>
 a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-weight: bold;  text-decoration: line-through;}a.lupa:hover, a.lupa:focus {  text-decoration: none; color:gray}
 </style>
@@ -9,7 +14,7 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">.: Lupa Password</div>
 				<div class="panel-body">
-					<form role="form">
+					<form role="form" action="" method="post">
 						<fieldset>
 							<div class="form-group">
                             <div class="alert bg-primary" role="alert">

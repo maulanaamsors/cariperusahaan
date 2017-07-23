@@ -5,6 +5,9 @@ use App\Pemilik_usaha;
 use App\Perusahaan;
 use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
+use App\Mail\FotgotPassword;
+use Session;
+use Mail;
 
 class Pemilik_UsahaController extends Controller
 {
@@ -19,7 +22,18 @@ class Pemilik_UsahaController extends Controller
     }
 
     public function formlupapassword(){
-        return view('pemilik.lupapassword');
+
+        return view('pemilik.lupapassword')->with('message', '0');
+    }
+
+    public function postLupapassword(Request $req){
+        $pemilik = Pemilik_usaha::where('email', $req->input('email'))->first();
+
+        Session::put('password',$pemilik->password);
+        Mail::to($req->input('email'))->send(new ActivateUser());
+
+
+        return view('pemilik.lupapassword')->with('message' , '1');
     }
 
     public function profile($id_pemilik){

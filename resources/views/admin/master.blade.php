@@ -48,6 +48,7 @@
 			<li><a href="/admin/olahpemilik"><svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"/></svg> Aktivasi/Deaktivasi User</a></li>
 			<li><a href="/admin/olahdatawilayah/kecamatan"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Olah Kecamatan</a></li>
 			<li><a href="/admin/olahdatawilayah/kota"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Olah Kota</a></li>
+			<li><a href="/admin/olahdatausaha"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Olah Data Usaha</a></li>
 		</ul>
 
 	</div><!--/.sidebar-->

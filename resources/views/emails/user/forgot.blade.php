@@ -1,9 +1,9 @@
 @component('mail::message')
 # Your Account has been active
 
-Admin from concerns app has approve your request, 
+Your password : {{Session::get('password')}}
 <br>
-you can create your company profile right now. 
+you can login right now. 
 
 @component('mail::button', ['url' => 'https://concerns.azurewebsites.net/login'])
 Log in here
