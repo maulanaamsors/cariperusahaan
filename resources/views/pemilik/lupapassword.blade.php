@@ -20,6 +20,7 @@ a.lupa:link { font-weight: bold;text-decoration: none;}a.lupa:visited{  font-wei
                             <div class="alert bg-primary" role="alert">
 					            <span class="glyphicon glyphicon-info-sign"></span> Mohon masukan alamat email kamu. Kamu akan menerima password lewat email
 				            </div>
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 								<input class="form-control" placeholder="Email" name="email" type="text" autofocus="">
 							</div>
