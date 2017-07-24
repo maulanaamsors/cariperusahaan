@@ -30,7 +30,7 @@ Route::get('/pemilik/editphotoperusahaan', 'PerushaanController@getEditPhoto');
 Route::post('/pemilik/editphotoperusahaan', 'PerushaanController@postEditPhoto');
 Route::delete('/pemilik/deletephotoperusahaan', 'PerushaanController@deleteEditPhoto');
 Route::get('/pemilik/profile/{id_pemilik}', 'Pemilik_UsahaController@profile');
-Route::get('/pemilik/profile/{id_pemilik}/pengaturan', 'Pemilik_UsahaController@formeditprofile');
+Route::get('/pemilik/profile/{nama}/pengaturan', 'Pemilik_UsahaController@formeditprofile');
 
 //Route for Admin
 Route::get('/admin','pengolahanakunpengusahahController@index');
