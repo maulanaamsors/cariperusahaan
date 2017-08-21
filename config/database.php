@@ -43,7 +43,7 @@ return [
             'driver' => 'mysql',
             'host' => 'us-cdbr-azure-southcentral-f.cloudapp.net',
             'port' => '3306',
-            'database' => 'concerns',
+            'database' => 'concerns2',
             'username' => 'b59f65860779a5',
             'password' => '8881d6ff',
             'unix_socket' => env('DB_SOCKET', ''),
