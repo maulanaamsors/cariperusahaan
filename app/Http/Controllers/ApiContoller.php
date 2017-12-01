@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\DokterKompiActive;
 use Mail;
 
 class ApiContoller extends Controller
