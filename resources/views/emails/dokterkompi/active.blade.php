@@ -4,7 +4,7 @@
 Admin from Dokter Kompi app has approve your request, 
 <br> 
 
-@component('mail::button', ['url' => 'https://concerns.azurewebsites.net/login'])
+@component('mail::button', ['url' => 'https://dokkom.herokuapp.com/login'])
 Log in here
 @endcomponent
 
