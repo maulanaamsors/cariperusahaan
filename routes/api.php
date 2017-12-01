@@ -26,5 +26,5 @@ Route::get('/listsektor', 'ApiPrusahaanController@getListSektor');
 Route::get('/perusahaan/{id_prusahaan}', 'ApiPrusahaanController@getPerusahaan');
 Route::get('/listphoto/{id_prusahaan}', 'ApiPrusahaanController@getListPhoto');
 
-Route::post('/doterkompi/active', 'ApiController@postActive');
+Route::post('/doterkompi/active', 'ApiContoller@postActive');
 
