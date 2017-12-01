@@ -27,4 +27,6 @@ Route::get('/perusahaan/{id_prusahaan}', 'ApiPrusahaanController@getPerusahaan')
 Route::get('/listphoto/{id_prusahaan}', 'ApiPrusahaanController@getListPhoto');
 
 Route::post('/doterkompi/active', 'ApiContoller@postActive');
+Route::post('/doterkompi/deactive', 'ApiContoller@postDeactive');
+Route::post('/doterkompi/greating', 'ApiContoller@postGreating');
 

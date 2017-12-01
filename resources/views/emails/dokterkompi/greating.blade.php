@@ -1,11 +1,11 @@
 @component('mail::message')
-# Your Account has been Deactive :(
+# Welcome to Dokter Kompi :)
 
-Admin from Dokter Kompi app has Deactive your account, 
+As soon admin from Dokter Kompi will activate your account by review manual your CV,  
 You can contact our customer service for more info. 
 <br>
-Your account will be collapse from user search. 
-after admin from dokter kompi activate your account  
+So, Update your profile as soon as posible.
+<br>  
 
 @component('mail::button', ['url' => 'https://dokkom.herokuapp.com/login'])
 Log in here
